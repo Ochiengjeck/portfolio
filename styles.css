@@ -136,14 +136,7 @@ header {
     padding: 15px 0;
 }
 
-/* .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.header-container #nav-menu{
 
-} */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -244,6 +237,21 @@ nav ul li a::after {
 nav ul li a:hover::after,
 nav ul li a.active::after {
     width: 100%;
+}
+
+body.dark-mode .social-links a img {
+    filter: invert(1);
+    /* Invert colors for dark theme */
+}
+
+.social-links a i {
+    color: var(--icon-color-light);
+    /* Default color for icons */
+}
+
+body.dark-mode .social-links a i {
+    color: var(--icon-color-dark);
+    /* Change color for dark theme */
 }
 
 .mobile-menu-btn {
