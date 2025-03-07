@@ -136,10 +136,50 @@ header {
     padding: 15px 0;
 }
 
+/* .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-container #nav-menu{
+
+} */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header-container nav {
+    flex-grow: 1;
+    /* Allow nav to take available space */
+    text-align: right;
+    /* Align nav items to the right */
+}
+
+.header-container #nav-menu {
+    list-style: none;
+    /* Remove default list styling */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+    display: inline-flex;
+    /* Display items in a row */
+    gap: 20px;
+    /* Space between items */
+}
+
+.header-container #nav-menu li {
+    display: inline;
+    /* Display list items inline */
+}
+
+.header-container #nav-menu a {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: inherit;
+    /* Use current text color */
 }
 
 .logo {
