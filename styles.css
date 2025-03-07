@@ -692,6 +692,11 @@ section {
     color: var(--primary-dark);
 }
 
+.skill-icon img {
+    width: 40px;
+    height: 40px;
+}
+
 /* Services Section */
 .services-container {
     display: grid;
@@ -1514,9 +1519,16 @@ footer {
         justify-content: center;
     }
 
+    .social-links-images {
+        width: 24px;
+        height: 24px;
+    }
+
     .social-links {
         justify-content: center;
     }
+
+
 
     .hero-image {
         justify-content: center;
