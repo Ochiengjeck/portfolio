@@ -178,25 +178,37 @@ setInterval(() => {
     showTestimonial(currentTestimonial + 1);
 }, 5000);
 
-// Contact Form Submission
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
 
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+    if (contactForm) {
+        contactForm.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent default form submission
 
-        // Here you would typically send the form data to a server
-        // For this demo, we'll just log it and show an alert
-        console.log({ name, email, subject, message });
+            // Get form values
+            const formData = new FormData(contactForm);
 
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
-    });
-}
+            try {
+                // Send form data to Formspree
+                const response = await fetch("https://formspree.io/f/xwplpnbj", {
+                    method: "POST",
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (response.ok) {
+                    alert("Thank you for your message! I will get back to you soon.");
+                    contactForm.reset(); // Clear the form
+                } else {
+                    alert("Oops! Something went wrong. Please try again.");
+                }
+            } catch (error) {
+                alert("Error submitting form. Please check your connection and try again.");
+            }
+        });
+    }
+});
+
 
 // Smooth Scrolling for Internal Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
